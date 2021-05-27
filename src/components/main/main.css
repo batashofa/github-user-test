@@ -1,0 +1,117 @@
+.main {
+    align-items: center;
+
+}
+.main__container {
+    display: flex;
+    margin-right: 56px;
+    max-width: 1366px;
+    margin-right: auto;
+    margin-left: auto;
+    padding-top: 28px;
+    padding-left: 57px;
+
+}
+
+.main__container-profile {
+    width: 292.08px;
+    height: 431.98px;
+}
+
+.main__container-photo {
+    width: 280px;
+    height: 280px;
+    border-radius: 50%;
+    margin-top: 11px;
+}
+
+.main__container-info {
+width: 170px;
+height: 34px;
+/* margin-top: calc(420px - 111px - 280px); */
+}
+
+.name__container-name {
+    width: 100%;
+    font-weight: 600;
+    font-style: normal;
+    font-size: 26px;
+    line-height: 33.8px;
+}
+
+.name__container-username {
+color: #0064EB;
+font-weight: 400;
+font-style: normal;
+font-size: 18px;
+line-height: 21.78px;
+margin-left: 0;
+text-align: left;
+width: 292px;
+height: 24px;
+}
+
+.name__container-followers {
+    width: 115px;
+    margin: 0;
+    font-weight: 400;
+    font-style: normal;
+    font-size: 18px;
+    line-height: 24 px;
+
+}
+
+.name__container-following {
+    width: 97px;
+    font-weight: 400;
+    font-style: normal;
+    font-size: 18px;
+    line-height: 24 px;
+  
+
+}
+
+.main__container-repositories {
+    width: 100%;
+    text-align: left;
+    margin-left: 98px;
+    list-style-type: none;
+    margin-right: 0;
+    font-weight: 600;
+    font-style: normal;
+    font-size: 32px;
+    line-height: 41.6px;
+}
+
+
+.main__container-li {
+    width: 877px;
+    height: 112px;
+   margin-top: 24px;
+   margin-bottom: 24px;
+    list-style-type: none; 
+    font-weight: 400;
+    font-style: normal;
+    font-size: 16px;
+    line-height: 19.36px;
+    color: #000000;
+
+}
+.main__container-li > a {
+    width: 191px;
+    height: 29px;
+    font-weight: 500;
+    font-style: normal;
+    font-size: 24px;
+    line-height: 29.05px;
+    color: #0064EB;
+    padding: 16px, 0;
+
+
+}
+
+.main__container-li > div {
+    width: 586px;
+    height: 19px;
+    margin-top: 16px;
+}
