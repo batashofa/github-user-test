@@ -1,77 +1,83 @@
-import React from "react"
-import Photo from '../../assets/svg/Photo.png';
-import { ReactComponent as Followers } from '../../assets/svg/followers.svg';
-import { ReactComponent as Following } from '../../assets/svg/following.svg';
-import './main.css';
+import React from "react";
+import Pagination from "../pagination/pagination";
+import "./main.css";
 
 class Main extends React.Component {
-    constructor(props) {
-        super(props)
-        this.state = {
-            userData: {}
-        }
-    }
+  constructor(props) {
+    super(props);
+    this.state = {
+      userData: {},
+      userRepos: [],
+      currentPage: 1,
+    };
+  }
 
-    componentDidMount() {
-        fetch("https://api.github.com/users/batashofa")
+  getUserData(response) {
+    this.setState({ userData: response });
+    fetch(`${this.state.userData.repos_url}?page=${this.state.currentPage}&per_page=4&sort=pushed`)
+      .then((res) => res.json())
+      .then((res) => this.setState({ userRepos: res }));
+  }
+
+  componentDidUpdate(prevProps,prevState) {
+    if (this.props.search !== prevProps.search || prevState.currentPage !== this.state.currentPage) {
+      fetch(`https://api.github.com/users/${this.props.search}`)
         .then((res) => res.json())
-        .then((res)=> this.setState({userData: res}))
-        .catch((error)=> console.log(error))
-        
+        .then((res) => this.getUserData(res))
+        .catch((error) => console.log(error));
     }
+  }
 
-    render() {
-        const data = this.state.userData;
-        return (
-            <main className="main"> 
-           <div className="main__container">
-               <div className="main__container-profile">
-               <img className="main__container-photo" src={Photo} alt="Photo" />
-               <div className="main__container-info">
-                   <span className="name__container-name">
-                       {data.login}
-                    </span>
-                    <h2 className="name__container-username">
-                     gaearon
-                    </h2>
-                    <div className="name__container-followers">
-                    <Followers/>
-                    <a className="name__container-followers">followers</a>
-                    </div>
-                    <div className="name__container-following">
-                    <Following/>
-                    <a className="name__container-following">following</a>
-                    </div>
-               </div>
-               </div>
-               <div className="main__container-repositories">
-                   <div>Repositories (249)</div>
-                   <ul className="main__container-ul">  
-                       <li className="main__container-li">
-                           <a>react-hot-loader</a>
-                            <div>Tweak React components in real time. Deprecated: use Fast Refresh instead.</div>
-                       </li>
-                       <li className="main__container-li">
-                           <a>overreacted.io</a>
-                           <div>Personal blog by Dan Abramov</div>
-                       </li>
-                       <li className="main__container-li">
-                           <a>whatthefuck.is</a>
-                           <div>An opinionated glossary of computer science terms for front-end developers. Written by Dan Abramov.</div>
-                       </li>
-                       <li className="main__container-li">
-                           <a>react-deep-force-update</a>
-                           <div>react-deep-force-update</div>
-                       </li>
-
-                   </ul>
-                   
-                </div>
-               </div>
-               </main>
-        );
-        
+  numberConverter(num) {
+    if (num >= 1000) {
+      return (num / 1000).toFixed(1) + "k";
     }
+    return num;
+  }
+
+  render() {
+    const data = this.state.userData;
+    console.log(this.state.currentPage);
+    return (
+      <main className="main">
+        <div className="main__container">
+          <div className="main__container-profile">
+            <img
+              className="main__container-photo"
+              src={data.avatar_url}
+              alt="Photo"
+            />
+            <div className="main__container-info">
+              <span className="name__container-name">{data.name}</span>
+              <h2 className="name__container-username">
+                  <a href={data.html_url} target="_blank" > {data.login}</a>
+                  </h2>
+              <div className="name__container-follow">
+                <a className="name__container-followers">
+                  {this.numberConverter(data.followers)} followers
+                </a>
+                <a className="name__container-following">
+                  {data.following} following
+                </a>
+              </div>
+            </div>
+          </div>
+          <div className="main__container-repositories">
+            <div>Repositories ({data.public_repos})</div>
+            <ul className="main__container-ul">
+              {this.state.userRepos.map((repos, key) => (
+                <li key={key} className="main__container-li">
+                  <a href={repos.html_url} target="_blank">{repos.name}</a>
+                  <div>{repos.description}</div>
+                </li>
+              ))}
+            </ul>
+            <Pagination currentPage={(page)=>this.setState({currentPage: page})} numOfElements={data.public_repos} elementsPerPage={4}/>
+          </div>
+        </div>
+      </main>
+    );
+  }
 }
 
 export default Main;

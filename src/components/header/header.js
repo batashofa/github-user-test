@@ -5,6 +5,14 @@ import './header.css';
 
 class Header extends React.Component {
 
+    
+    handleSubmit(e) {
+        const formData = new FormData(e.target);
+        this.props.value(formData.get("search").toString());
+       
+        e.preventDefault()
+    }
+
     render() {
         return (
             <header className="header">
@@ -15,7 +23,10 @@ class Header extends React.Component {
                      <div className="header__search-icon">
                          <Icon/>
                      </div>
-                     <input className="header__search-text" type = "text" placeholder = "Enter GitHub username" ></input>
+                     <form onSubmit={(e)=>this.handleSubmit(e)}>
+                     <input name="search" className="header__search-text" type="text" placeholder="Enter GitHub username" ></input>
+
+                     </form>
 
                  </div>
             </header>
