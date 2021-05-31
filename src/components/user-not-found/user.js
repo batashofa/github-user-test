@@ -3,7 +3,6 @@ import "./user.css";
 import { ReactComponent as User } from '../../assets/svg/User.svg';
 
 
-
 export default class UserNotFound extends React.Component {
     render() {
         return (

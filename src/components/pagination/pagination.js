@@ -34,13 +34,12 @@ export default class Pagination extends React.Component {
       }
 
       if (page > 0) {
-      
+
         buttonArray.push(
           <button
             key={page}
-            className={`pagination__button ${
-              page === this.state.currentPage ? "pagination__button-active" : ""
-            } `}
+            className={`pagination__button ${page === this.state.currentPage ? "pagination__button-active" : ""
+              } `}
             onClick={() => this.handleClick(page)}
           >
             {page}
@@ -80,12 +79,11 @@ export default class Pagination extends React.Component {
       this.props.numOfElements !==
       this.state.currentPage * this.props.elementsPerPage - 3
     ) {
-      return `${this.state.currentPage * this.props.elementsPerPage - 3}-${
-        this.state.currentPage * this.props.elementsPerPage >
-        this.props.numOfElements
+      return `${this.state.currentPage * this.props.elementsPerPage - 3}-${this.state.currentPage * this.props.elementsPerPage >
+          this.props.numOfElements
           ? this.props.numOfElements
           : this.state.currentPage * this.props.elementsPerPage
-      }`;
+        }`;
     }
 
     return this.props.numOfElements;

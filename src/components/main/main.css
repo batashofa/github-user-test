@@ -1,6 +1,5 @@
 .main {
   align-items: center;
-  overflow: hidden;
   width: 100%;
 }
 .main__container {
@@ -106,13 +105,13 @@
   font-style: normal;
   font-size: 32px;
   line-height: 41.6px;
-  min-height: 67.7vh;
+  
 }
 .main__container-ul {
   display: flex;
   flex-flow: column;
   justify-content: space-between;
-  min-height: 520px;
+  min-height: 67.7vh;
 }
 
 .main__container-li {

@@ -4,7 +4,7 @@ import Header from "./components/header/header";
 import Main from "./components/main/main";
 import { useState } from "react";
 import React from "react";
-import SearchPage from "./components/initial-state/initial";
+import SearchPage from "./components/search/search";
 
 class App extends React.Component {
   constructor(props) {

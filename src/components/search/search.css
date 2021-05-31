@@ -15,7 +15,7 @@
 }
 .search__text {
   height: 62px;
-  width: 210px;
+  width: 190px;
   border-radius: nullpx;
   font-family: Inter;
   font-size: 22px;
@@ -24,4 +24,6 @@
   line-height: 31px;
   letter-spacing: 0px;
   color: #808080;
+  margin-bottom: 0;
+
 }

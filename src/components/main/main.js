@@ -24,7 +24,8 @@ class Main extends React.Component {
       `${this.state.userData.repos_url}?page=${this.state.currentPage}&per_page=4&sort=pushed`
     )
       .then((res) => res.json())
-      .then((res) => this.setState({ userRepos: res }));
+      .then((res) => this.setState({ userRepos: res }))
+      .catch((error) => console.log(error));
   }
 
   getUserData() {
@@ -56,7 +57,7 @@ class Main extends React.Component {
 
   render() {
     const data = this.state.userData;
-    console.log(this.props);
+
     if (this.state.loading) {
       return <Loader />;
     } else if (this.state.userData.repos_url == undefined) {
@@ -106,9 +107,8 @@ class Main extends React.Component {
                 numOfElements={data.public_repos}
                 elementsPerPage={4}
               />
-                    
             </div>
-    }
+            }
           </div>
         </main>
       );
