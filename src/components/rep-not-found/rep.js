@@ -1,18 +1,16 @@
 import React from "react"
 import "./rep.css";
-import Rep from "../../assets/svg/rep.png";
+import { ReactComponent as Rep } from '../../assets/svg/Rep.svg';
 
 
 
-class Main extends React.Component {
-render() {
-    return (
-        <div>
-            <div><Rep/></div>
-            <p>Repository list is empty</p>
-        </div>
-    );
+export default class RepNotFound extends React.Component {
+    render() {
+        return (
+            <div className="rep">
+                <div className="rep__icon"><Rep /></div>
+                <p className="rep__text">User not found </p>
+            </div>
+        );
+    }
 }
-}
-
-export default Main;

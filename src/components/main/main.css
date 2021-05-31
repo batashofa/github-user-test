@@ -37,7 +37,6 @@
 }
 
 .name__container-username {
-  color: #0064eb;
   font-weight: 400;
   font-style: normal;
   font-size: 18px;
@@ -50,11 +49,11 @@
 }
 .name__container-username a {
   text-decoration: none;
+  color: #0064eb;
 }
 .name__container-username:hover {
   cursor: pointer;
   text-decoration: underline;
-  
 }
 
 .name__container-followers,
@@ -75,9 +74,9 @@
   background: linear-gradient(to top, rgb(0%, 39%, 92%) 0%, transparent 100%);
 }
 .name__container-following:hover {
-    cursor: pointer;
-    background: linear-gradient(to top, rgb(0%, 39%, 92%) 0%, transparent 100%);
-  }
+  cursor: pointer;
+  background: linear-gradient(to top, rgb(0%, 39%, 92%) 0%, transparent 100%);
+}
 
 .name__container-followers::before {
   content: "";
@@ -113,6 +112,7 @@
   display: flex;
   flex-flow: column;
   justify-content: space-between;
+  min-height: 520px;
 }
 
 .main__container-li {
@@ -193,6 +193,7 @@
     padding-left: 5px;
     font-size: 16px;
     margin-bottom: 50px;
+    min-height: 280px;
   }
 
   .main__container-li {
@@ -200,6 +201,19 @@
     margin-bottom: 15px;
     font-size: 14px;
   }
+  
+  .main__container-li div:after {
+    content: "";
+    text-align: right;
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    width: 70%;
+    height: 1.2em;
+    background: linear-gradient(to right, rgba(255, 255, 255, 0), white 100%);
+    pointer-events: none;
+  }
+
   .main__container-li > a {
     height: 29px;
     margin-top: 20px;
@@ -239,19 +253,29 @@
     width: 14px;
     height: 14px;
   }
-
+  
   .main__container-repositories {
     font-size: 18px;
+    min-height: auto;
   }
   .main__container-ul {
     font-size: 14px;
     margin-bottom: 50px;
+    min-height: 350px;
   }
 
   .main__container-li {
     font-size: 14px;
+     margin-top: 10px;
   }
+  .main__container-li div {
+    overflow: hidden;
+    position: relative;
+  }
+
+
   .main__container-li > a {
     font-size: 16px;
+    min-height: 50px;
   }
 }

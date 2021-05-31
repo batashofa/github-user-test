@@ -1,0 +1,27 @@
+.search {
+    height: calc(100vh - 72px);
+    display: flex;
+    flex-flow: column;
+    justify-content: center;
+    align-items: center;
+}
+.search__icon {
+  height: 64.17px;
+  width: 64.17px;
+  left: 22.92px;
+  top: 22.92px;
+  border-radius: 0px;
+  color: #808080;
+}
+.search__text {
+  height: 62px;
+  width: 210px;
+  border-radius: nullpx;
+  font-family: Inter;
+  font-size: 22px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 31px;
+  letter-spacing: 0px;
+  color: #808080;
+}

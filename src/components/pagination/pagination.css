@@ -4,6 +4,7 @@
 }
 
 .pagination__list {
+  color: #808080;
   list-style-type: none;
   display: flex;
   margin: 0;

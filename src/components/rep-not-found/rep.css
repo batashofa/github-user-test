@@ -1,0 +1,22 @@
+.rep {
+    height: calc(100vh - 72px);
+    width: 100%;
+    display: flex;
+    flex-flow: column;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  .rep__text {
+    height: 62px;
+    width: 210px;
+    border-radius: nullpx;
+    font-family: Inter;
+    font-size: 22px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 31px;
+    letter-spacing: 0px;
+    color: #808080;
+  }
+  

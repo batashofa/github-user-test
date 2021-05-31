@@ -1,18 +1,18 @@
 import React from "react"
 import "./inicial.css";
-import Inicial from "../../assets/svg/inicial.png";
+import { ReactComponent as SearchIcon } from "../../assets/svg/SearchIcon.svg";
 
 
 
-class Main extends React.Component {
-render() {
-    return (
-        <div>
-            <div><Inicial/></div>
-            <p>Start with searching a GitHub user </p>
-        </div>
-    );
+class SearchPage extends React.Component {
+    render() {
+        return (
+            <div className="search">
+                <div className="search__icon"><SearchIcon /></div>
+                <p className="search__text">Start with searching a GitHub user </p>
+            </div>
+        );
+    }
 }
-}
 
-export default Main;
+export default SearchPage;
